@@ -15,10 +15,10 @@ export const Dashboard = () => {
         Dashboard
       </Typography>
       <Stack direction="row" spacing={2} sx={{ mr: "0.5em" }}>
-        <StatCard title="10" content="Employees" iconName="Groups" />
-        <StatCard title="10" content="Employees" iconName="Groups" />
-        <StatCard title="10" content="Employees" iconName="Groups" />
-        <StatCard title="10" content="Employees" iconName="Groups" />
+        <StatCard title="30" content="Total Employees" iconName="Groups" />
+        <StatCard title="12" content="Enrolled Employees" iconName="Groups" />
+        <StatCard title="18" content="Unenrolled Employees" iconName="Groups" />
+        <StatCard title="2" content="Admins" iconName="Groups" />
       </Stack>
       <Stack
         direction="row"

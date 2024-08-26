@@ -27,5 +27,9 @@ export const authProvider: AuthProvider = {
       : Promise.reject();
   },
   // called when the user navigates to a new location, to check for permissions / roles
-  getPermissions: () => Promise.resolve(),
+  getPermissions: () => {
+    if (localStorage.getItem("username") === "admin")
+      return Promise.resolve("admin");
+    else return Promise.resolve("employee");
+  },
 };

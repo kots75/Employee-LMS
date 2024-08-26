@@ -17,14 +17,33 @@ export const App = () => (
     dataProvider={dataProvider}
     dashboard={Dashboard}
   >
-    <Resource
-      name="posts"
-      list={PostList}
-      edit={PostEdit}
-      create={PostCreate}
-      icon={PostIcon}
-    />
-    <Resource name="users" list={UserList} show={ShowGuesser} icon={UserIcon} />
-    <Resource name="todos" list={TodoList} icon={ListIcon} />
+    {(permissions) => (
+      <>
+        <Resource
+          name="posts"
+          list={PostList}
+          edit={
+            permissions === "admin" ? (
+              PostEdit
+            ) : (
+              <>
+                <h1>You do not have permission to edit</h1>
+              </>
+            )
+          }
+          create={PostCreate}
+          icon={PostIcon}
+        />
+        {permissions === "admin" ? (
+          <Resource
+            name="users"
+            list={UserList}
+            show={ShowGuesser}
+            icon={UserIcon}
+          />
+        ) : null}
+        <Resource name="todos" list={TodoList} icon={ListIcon} />
+      </>
+    )}
   </Admin>
 );
