@@ -6,7 +6,12 @@ import BarChartCard from "./components/BarChartCard";
 export const Dashboard = () => {
   return (
     <Box>
-      <Typography variant="h4" component="div" sx={{ my: "0.5em" }}>
+      <Typography
+        fontWeight="Bold"
+        variant="h4"
+        component="div"
+        sx={{ my: "0.5em" }}
+      >
         Dashboard
       </Typography>
       <Stack direction="row" spacing={2} sx={{ mr: "0.5em" }}>
