@@ -23,9 +23,9 @@ const PieChartCard = () => {
           <Pie
             data={pieData}
             cx={200}
-            cy={200}
+            cy={120}
             labelLine={false}
-            outerRadius={80}
+            outerRadius={120}
             fill="#8884d8"
             dataKey="value"
           >
