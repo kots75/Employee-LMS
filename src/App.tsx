@@ -22,19 +22,11 @@ export const App = () => (
         <Resource
           name="posts"
           list={PostList}
-          edit={
-            permissions === "admin" ? (
-              PostEdit
-            ) : (
-              <>
-                <h1>You do not have permission to edit</h1>
-              </>
-            )
-          }
+          edit={PostEdit}
           create={PostCreate}
           icon={PostIcon}
         />
-        {permissions === "admin" ? (
+        {permissions.role === "admin" ? (
           <Resource
             name="users"
             list={UserList}

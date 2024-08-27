@@ -10,3 +10,8 @@ export type Post = {
   body: string;
   userId: number;
 };
+
+export type Permissions = {
+  role: string;
+  userId: number;
+};

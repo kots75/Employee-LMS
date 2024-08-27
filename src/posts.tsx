@@ -11,7 +11,9 @@ import {
   TextInput,
   Create,
   usePermissions,
+  useRecordContext,
 } from "react-admin";
+import { Permissions } from "./types";
 const RichTextInput = React.lazy(() =>
   import("ra-input-rich-text").then((module) => ({
     default: module.RichTextInput,
@@ -23,8 +25,22 @@ const postFilters = [
   <ReferenceInput source="userId" label="User" reference="users" />,
 ];
 
+const EditOwnPostButton = () => {
+  const record = useRecordContext();
+  const { permissions } = usePermissions<Permissions>();
+  if (
+    record &&
+    permissions?.role === "employee" &&
+    record.userId === permissions?.userId
+  ) {
+    return <EditButton />;
+  } else if (permissions?.role === "admin") {
+    return <EditButton />;
+  }
+};
+
 export const PostList = () => {
-  const { permissions } = usePermissions();
+  const { permissions } = usePermissions<Permissions>();
   return (
     <List filters={postFilters}>
       <Datagrid rowClick={false}>
@@ -32,10 +48,10 @@ export const PostList = () => {
         <ReferenceField
           source="userId"
           reference="users"
-          link={permissions === "admin" ? "show" : ""}
+          link={permissions?.role === "admin" ? "show" : ""}
         />
         <TextField source="title" />
-        {permissions === "admin" && <EditButton />}
+        <EditOwnPostButton />
       </Datagrid>
     </List>
   );

@@ -4,15 +4,25 @@ import {
   List,
   ReferenceField,
   TextField,
+  usePermissions,
 } from "react-admin";
+import { Permissions } from "./types";
 
-export const TodoList = () => (
-  <List>
-    <Datagrid>
-      <ReferenceField source="userId" reference="users" />
-      <TextField source="id" />
-      <TextField source="title" />
-      <BooleanField source="completed" />
-    </Datagrid>
-  </List>
-);
+export const TodoList = () => {
+  const { permissions } = usePermissions<Permissions>();
+
+  return (
+    <List>
+      <Datagrid>
+        <ReferenceField
+          source="userId"
+          reference="users"
+          link={permissions?.role === "admin" ? "show" : ""}
+        />
+        <TextField source="id" />
+        <TextField source="title" />
+        <BooleanField source="completed" />
+      </Datagrid>
+    </List>
+  );
+};
