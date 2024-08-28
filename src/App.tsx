@@ -1,5 +1,4 @@
 import ArticleIcon from "@mui/icons-material/Article";
-import PostIcon from "@mui/icons-material/Book";
 import CategoryIcon from "@mui/icons-material/Category";
 import UserIcon from "@mui/icons-material/Group";
 import SchoolIcon from "@mui/icons-material/School";
@@ -15,14 +14,16 @@ import { EmployeeEdit } from "./Employees/EmployeeEdit";
 import { EmployeeList } from "./Employees/EmployeeList";
 import { EmployeeShow } from "./Employees/EmployeeShow";
 
-import { PostCreate, PostEdit, PostList } from "./Posts";
-
 import { CategoryCreate } from "./Categories/CategoryCreate";
 import { CategoryEdit } from "./Categories/CategoryEdit";
 import { CategoryList } from "./Categories/CategoryList";
 import { CategoryShow } from "./Categories/CategoryShow";
 
-import { ContributionList } from "./Contributions/ContributionsList";
+import { ContributionList } from "./Contributions/ContributionList";
+import { ContributionCreate } from "./Contributions/ContributionCreate";
+import { ContributionEdit } from "./Contributions/ContributionEdit";
+import { ContributionShow } from "./Contributions/ContributionShow";
+
 import { LearningPathCreate } from "./LearningPaths/LearningPathCreate";
 import { LearningPathEdit } from "./LearningPaths/LearningPathEdit";
 import { LearningPathList } from "./LearningPaths/LearningPathList";
@@ -37,13 +38,6 @@ export const App = () => (
   >
     {(permissions) => (
       <>
-        <Resource
-          name="posts"
-          list={PostList}
-          edit={PostEdit}
-          create={PostCreate}
-          icon={PostIcon}
-        />
         {permissions.role === "admin" ? (
           <Resource
             name="employees"
@@ -76,6 +70,9 @@ export const App = () => (
         <Resource
           name="contributions"
           list={ContributionList}
+          show={ContributionShow}
+          edit={ContributionEdit}
+          create={ContributionCreate}
           icon={ArticleIcon}
         />
       </>
