@@ -1,6 +1,7 @@
 import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
 import CategoryIcon from "@mui/icons-material/Category";
+import SchoolIcon from "@mui/icons-material/School";
 import {
   Admin,
   EditGuesser,
@@ -25,6 +26,12 @@ import {
   CategoryList,
   CategoryShow,
 } from "./resources/categories";
+import {
+  LearningPathCreate,
+  LearningPathEdit,
+  LearningPathList,
+  LearningPathShow,
+} from "./resources/learningpaths";
 
 export const App = () => (
   <Admin
@@ -62,6 +69,15 @@ export const App = () => (
             icon={CategoryIcon}
           />
         ) : null}
+        <Resource
+          name="learning_paths"
+          list={LearningPathList}
+          show={LearningPathShow}
+          edit={permissions.role === "admin" ? LearningPathEdit : undefined}
+          create={permissions.role === "admin" ? LearningPathCreate : undefined}
+          icon={SchoolIcon}
+          options={{ label: "Learning Paths" }}
+        />
       </>
     )}
   </Admin>
