@@ -2,7 +2,7 @@
 
 employee mgmt DONE
 
-learning paths (relation to categories and employees) (names of employees who are enrolled in one could have their names appear as chips for that learning path)
+learning paths (relation to categories and employees) (names of employees who are enrolled in one could have their names appear as chips for that learning path) DONE
 
 category mgmt DONE
 

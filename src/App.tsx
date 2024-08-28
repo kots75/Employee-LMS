@@ -1,37 +1,30 @@
 import PostIcon from "@mui/icons-material/Book";
-import UserIcon from "@mui/icons-material/Group";
 import CategoryIcon from "@mui/icons-material/Category";
+import UserIcon from "@mui/icons-material/Group";
 import SchoolIcon from "@mui/icons-material/School";
-import {
-  Admin,
-  EditGuesser,
-  ListGuesser,
-  Resource,
-  ShowGuesser,
-} from "react-admin";
+import { Admin, Resource } from "react-admin";
 import { Dashboard } from "./components/Dashboard";
 import { Layout } from "./Layout";
+
 import { authProvider } from "./providers/authProvider";
 import { dataProvider } from "./providers/dataProvider";
-import {
-  EmployeeCreate,
-  EmployeeEdit,
-  EmployeeList,
-  EmployeeShow,
-} from "./resources/employees";
-import { PostCreate, PostEdit, PostList } from "./resources/posts";
-import {
-  CategoryCreate,
-  CategoryEdit,
-  CategoryList,
-  CategoryShow,
-} from "./resources/categories";
-import {
-  LearningPathCreate,
-  LearningPathEdit,
-  LearningPathList,
-  LearningPathShow,
-} from "./resources/learningpaths";
+
+import { EmployeeCreate } from "./Employees/EmployeeCreate";
+import { EmployeeEdit } from "./Employees/EmployeeEdit";
+import { EmployeeList } from "./Employees/EmployeeList";
+import { EmployeeShow } from "./Employees/EmployeeShow";
+
+import { PostCreate, PostEdit, PostList } from "./Posts";
+
+import { CategoryCreate } from "./Categories/CategoryCreate";
+import { CategoryEdit } from "./Categories/CategoryEdit";
+import { CategoryList } from "./Categories/CategoryList";
+import { CategoryShow } from "./Categories/CategoryShow";
+
+import { LearningPathCreate } from "./LearningPaths/LearningPathCreate";
+import { LearningPathEdit } from "./LearningPaths/LearningPathEdit";
+import { LearningPathList } from "./LearningPaths/LearningPathList";
+import { LearningPathShow } from "./LearningPaths/LearningPathShow";
 
 export const App = () => (
   <Admin

@@ -13,7 +13,7 @@ import {
   usePermissions,
   useRecordContext,
 } from "react-admin";
-import { Permissions } from "../types";
+import { Permissions } from "./types";
 const RichTextInput = React.lazy(() =>
   import("ra-input-rich-text").then((module) => ({
     default: module.RichTextInput,
