@@ -1,11 +1,12 @@
 import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
-import { Admin, ListGuesser, Resource } from "react-admin";
-import { Dashboard } from "./Dashboard";
+import { Admin, EditGuesser, Resource } from "react-admin";
+import { Dashboard } from "./components/Dashboard";
 import { Layout } from "./Layout";
-import { authProvider } from "./authProvider";
-import { dataProvider } from "./dataProvider";
-import { PostCreate, PostEdit, PostList } from "./posts";
+import { authProvider } from "./providers/authProvider";
+import { dataProvider } from "./providers/dataProvider";
+import { EmployeeList, EmployeeShow } from "./resources/employees";
+import { PostCreate, PostEdit, PostList } from "./resources/posts";
 
 export const App = () => (
   <Admin
@@ -24,7 +25,13 @@ export const App = () => (
           icon={PostIcon}
         />
         {permissions.role === "admin" ? (
-          <Resource name="employees" list={ListGuesser} icon={UserIcon} />
+          <Resource
+            name="employees"
+            list={EmployeeList}
+            show={EmployeeShow}
+            create={EditGuesser}
+            icon={UserIcon}
+          />
         ) : null}
       </>
     )}

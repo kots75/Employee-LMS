@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
-import PieChartCard from "./components/PieChartCard";
-import StatCard from "./components/StatCard";
-import BarChartCard from "./components/BarChartCard";
+import PieChartCard from "./PieChartCard";
+import StatCard from "./StatCard";
+import BarChartCard from "./BarChartCard";
 import { Title } from "react-admin";
 
 export const Dashboard = () => {
