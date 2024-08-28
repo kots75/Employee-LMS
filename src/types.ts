@@ -41,6 +41,6 @@ export type Contribution = {
   id: number;
   title: string;
   body: string;
-  userId: number;
+  employeeId: number;
   learningPathId: number;
 };

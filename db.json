@@ -5,29 +5,21 @@
       "name": "John Doe",
       "position": "Frontend Developer",
       "email": "john.doe@example.com",
-      "enrolled": [
-        1,
-        3
-      ]
+      "enrolled": [1, 3]
     },
     {
       "id": 2,
       "name": "Jane Smith",
       "position": "Backend Developer",
       "email": "jane.smith@example.com",
-      "enrolled": [
-        2,
-        4
-      ]
+      "enrolled": [2, 4]
     },
     {
       "id": 3,
       "name": "Alice Johnson",
       "position": "DevOps Engineer",
       "email": "alice.johnson@example.com",
-      "enrolled": [
-        5
-      ]
+      "enrolled": [5]
     }
   ],
   "categories": [
@@ -50,45 +42,35 @@
       "name": "Vue.js",
       "categoryId": 1,
       "description": "Learn the basics and advanced concepts of Vue.js.",
-      "enrolled": [
-        1
-      ]
+      "enrolled": [1]
     },
     {
       "id": 2,
       "name": "NestJS",
       "categoryId": 2,
       "description": "Master backend development with NestJS framework.",
-      "enrolled": [
-        2
-      ]
+      "enrolled": [2]
     },
     {
       "id": 3,
       "name": "Styled Components",
       "categoryId": 1,
       "description": "Learn how to use Styled Components in React projects.",
-      "enrolled": [
-        1
-      ]
+      "enrolled": [1]
     },
     {
       "id": 4,
       "name": "JWT Authentication",
       "categoryId": 2,
       "description": "Secure your backend applications with JWT authentication.",
-      "enrolled": [
-        2
-      ]
+      "enrolled": [2]
     },
     {
       "id": 5,
       "name": "Kubernetes",
       "categoryId": 3,
       "description": "Deploy and manage containerized applications with Kubernetes.",
-      "enrolled": [
-        3
-      ]
+      "enrolled": [3]
     }
   ],
   "contributions": [
@@ -96,35 +78,35 @@
       "id": 1,
       "title": "Advanced Techniques in Vue.js",
       "body": "An in-depth look at Vue.js directives and lifecycle hooks.",
-      "userId": 1,
+      "employeeId": 1,
       "learningPathId": 1
     },
     {
       "id": 2,
       "title": "Implementing Authentication in NestJS",
       "body": "Step-by-step guide to adding JWT authentication in NestJS.",
-      "userId": 2,
+      "employeeId": 2,
       "learningPathId": 2
     },
     {
       "id": 3,
       "title": "Styling React Components",
       "body": "How to use Styled Components effectively in large React projects.",
-      "userId": 1,
+      "employeeId": 1,
       "learningPathId": 3
     },
     {
       "id": 4,
       "title": "JWT in Action",
       "body": "A practical example of implementing JWT in a real-world application.",
-      "userId": 2,
+      "employeeId": 2,
       "learningPathId": 4
     },
     {
       "id": 5,
       "title": "Kubernetes Best Practices",
       "body": "Best practices for managing Kubernetes clusters.",
-      "userId": 3,
+      "employeeId": 3,
       "learningPathId": 5
     }
   ],

@@ -1,3 +1,4 @@
+import ArticleIcon from "@mui/icons-material/Article";
 import PostIcon from "@mui/icons-material/Book";
 import CategoryIcon from "@mui/icons-material/Category";
 import UserIcon from "@mui/icons-material/Group";
@@ -21,6 +22,7 @@ import { CategoryEdit } from "./Categories/CategoryEdit";
 import { CategoryList } from "./Categories/CategoryList";
 import { CategoryShow } from "./Categories/CategoryShow";
 
+import { ContributionList } from "./Contributions/ContributionsList";
 import { LearningPathCreate } from "./LearningPaths/LearningPathCreate";
 import { LearningPathEdit } from "./LearningPaths/LearningPathEdit";
 import { LearningPathList } from "./LearningPaths/LearningPathList";
@@ -70,6 +72,11 @@ export const App = () => (
           create={permissions.role === "admin" ? LearningPathCreate : undefined}
           icon={SchoolIcon}
           options={{ label: "Learning Paths" }}
+        />
+        <Resource
+          name="contributions"
+          list={ContributionList}
+          icon={ArticleIcon}
         />
       </>
     )}
