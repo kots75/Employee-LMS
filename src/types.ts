@@ -15,3 +15,32 @@ export type Permissions = {
   role: string;
   userId: number;
 };
+
+export type Employee = {
+  id: number;
+  name: string;
+  position: string;
+  email: string;
+  enrolled: number[];
+};
+
+export type Category = {
+  id: number;
+  name: string;
+};
+
+export type LearningPath = {
+  id: number;
+  name: string;
+  categoryId: number;
+  description: string;
+  enrolled: number[];
+};
+
+export type Contribution = {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+  learningPathId: number;
+};
