@@ -1,11 +1,16 @@
 import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
-import { Admin, EditGuesser, Resource } from "react-admin";
+import { Admin, Resource } from "react-admin";
 import { Dashboard } from "./components/Dashboard";
 import { Layout } from "./Layout";
 import { authProvider } from "./providers/authProvider";
 import { dataProvider } from "./providers/dataProvider";
-import { EmployeeList, EmployeeShow } from "./resources/employees";
+import {
+  EmployeeCreate,
+  EmployeeEdit,
+  EmployeeList,
+  EmployeeShow,
+} from "./resources/employees";
 import { PostCreate, PostEdit, PostList } from "./resources/posts";
 
 export const App = () => (
@@ -29,7 +34,8 @@ export const App = () => (
             name="employees"
             list={EmployeeList}
             show={EmployeeShow}
-            create={EditGuesser}
+            edit={EmployeeEdit}
+            create={EmployeeCreate}
             icon={UserIcon}
           />
         ) : null}
