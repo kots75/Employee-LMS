@@ -7,7 +7,7 @@ import {
   useRecordContext,
   useRefresh,
 } from "react-admin";
-import { Permissions } from "../types";
+import { Employee, Permissions } from "../types";
 
 const EnrollButton = () => {
   const { permissions } = usePermissions<Permissions>();
@@ -20,14 +20,35 @@ const EnrollButton = () => {
   const handleEnroll = async () => {
     setLoading(true);
     try {
-      const updatedEnrolled = record?.enrolled.includes(permissions?.userId)
+      const updatedPathEnrolled = record?.enrolled.includes(permissions?.userId)
         ? record.enrolled.filter((id: number) => id !== permissions?.userId)
         : [...record?.enrolled, permissions?.userId];
 
+      const { data: currentEmployee } = await dataProvider.getOne<Employee>(
+        "employees",
+        {
+          id: permissions?.userId ?? 1,
+        },
+      );
+      const updatedEmpEnrolled = currentEmployee.enrolled.includes(
+        record?.id as number,
+      )
+        ? currentEmployee.enrolled.filter((id: number) => id !== record?.id)
+        : [...currentEmployee.enrolled, record?.id];
+
       await dataProvider.update("learning_paths", {
         id: record?.id,
-        data: { ...record, enrolled: updatedEnrolled },
+        data: { ...record, enrolled: updatedPathEnrolled },
         previousData: record,
+      });
+
+      await dataProvider.update("employees", {
+        id: currentEmployee.id,
+        data: {
+          ...currentEmployee,
+          enrolled: updatedEmpEnrolled,
+        },
+        previousData: currentEmployee,
       });
 
       notify("Enrollment updated successfully", { type: "success" });
