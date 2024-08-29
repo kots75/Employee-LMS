@@ -3,11 +3,14 @@ import {
   Button,
   useDataProvider,
   useNotify,
+  usePermissions,
   useRecordContext,
   useRefresh,
 } from "react-admin";
+import { Permissions } from "../types";
 
 const EnrollButton = () => {
+  const { permissions } = usePermissions<Permissions>();
   const record = useRecordContext();
   const dataProvider = useDataProvider();
   const notify = useNotify();
@@ -17,9 +20,9 @@ const EnrollButton = () => {
   const handleEnroll = async () => {
     setLoading(true);
     try {
-      const updatedEnrolled = record?.enrolled.includes(record.id)
-        ? record.enrolled.filter((id: number) => id !== record.id)
-        : [...record?.enrolled, record?.id];
+      const updatedEnrolled = record?.enrolled.includes(permissions?.userId)
+        ? record.enrolled.filter((id: number) => id !== permissions?.userId)
+        : [...record?.enrolled, permissions?.userId];
 
       await dataProvider.update("learning_paths", {
         id: record?.id,
@@ -38,7 +41,11 @@ const EnrollButton = () => {
 
   return (
     <Button
-      label={record?.enrolled.includes(record?.id) ? "Unenroll" : "Enroll"}
+      variant="contained"
+      size="medium"
+      label={
+        record?.enrolled.includes(permissions?.userId) ? "Unenroll" : "Enroll"
+      }
       onClick={handleEnroll}
       disabled={loading}
     />

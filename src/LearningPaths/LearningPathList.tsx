@@ -1,9 +1,11 @@
 import {
+  ChipField,
   Datagrid,
   EditButton,
   List,
   ReferenceArrayField,
   ReferenceField,
+  SingleFieldList,
   TextField,
   usePermissions,
 } from "react-admin";
@@ -25,7 +27,13 @@ export const LearningPathList = () => {
         <ReferenceArrayField<LearningPath>
           reference="employees"
           source="enrolled"
-        />
+        >
+          <SingleFieldList
+            linkType={permissions?.role === "admin" ? "show" : false}
+          >
+            <ChipField source="name" />
+          </SingleFieldList>
+        </ReferenceArrayField>
         {permissions?.role === "admin" ? <EditButton /> : null}
       </Datagrid>
     </List>
