@@ -7,6 +7,7 @@ import {
   usePermissions,
 } from "react-admin";
 import { LearningPath, Permissions } from "../types";
+import EnrollButton from "./EnrollButton";
 
 export const LearningPathShow = () => {
   const { permissions } = usePermissions<Permissions>();
@@ -25,6 +26,7 @@ export const LearningPathShow = () => {
           reference="employees"
           source="enrolled"
         />
+        {permissions?.role === "employee" && <EnrollButton />}
       </SimpleShowLayout>
     </Show>
   );
