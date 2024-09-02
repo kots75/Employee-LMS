@@ -5,16 +5,32 @@ import {
   List,
   ReferenceArrayField,
   ReferenceField,
+  ReferenceInput,
+  SelectInput,
   SingleFieldList,
   TextField,
+  TextInput,
   usePermissions,
 } from "react-admin";
 import { LearningPath, Permissions } from "../types";
 
+const learningPathFilters = [
+  <TextInput source="q" label="Search" alwaysOn />,
+  <ReferenceInput
+    label="Employee"
+    source="employeeId"
+    reference="employees"
+    allowEmpty
+    alwaysOn={true}
+  >
+    <SelectInput optionText="name" />
+  </ReferenceInput>,
+];
+
 export const LearningPathList = () => {
   const { permissions } = usePermissions<Permissions>();
   return (
-    <List>
+    <List filters={learningPathFilters}>
       <Datagrid>
         <TextField<LearningPath> source="id" />
         <ReferenceField<LearningPath>

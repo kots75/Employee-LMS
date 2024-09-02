@@ -7,7 +7,7 @@ import { Dashboard } from "./components/Dashboard";
 import { Layout } from "./Layout";
 
 import { authProvider } from "./providers/authProvider";
-import { dataProvider } from "./providers/dataProvider";
+import customDataProvider from "./providers/dataProvider";
 
 import { EmployeeCreate } from "./Employees/EmployeeCreate";
 import { EmployeeEdit } from "./Employees/EmployeeEdit";
@@ -19,9 +19,9 @@ import { CategoryEdit } from "./Categories/CategoryEdit";
 import { CategoryList } from "./Categories/CategoryList";
 import { CategoryShow } from "./Categories/CategoryShow";
 
-import { ContributionList } from "./Contributions/ContributionList";
 import { ContributionCreate } from "./Contributions/ContributionCreate";
 import { ContributionEdit } from "./Contributions/ContributionEdit";
+import { ContributionList } from "./Contributions/ContributionList";
 import { ContributionShow } from "./Contributions/ContributionShow";
 
 import { LearningPathCreate } from "./LearningPaths/LearningPathCreate";
@@ -33,7 +33,7 @@ export const App = () => (
   <Admin
     layout={Layout}
     authProvider={authProvider}
-    dataProvider={dataProvider}
+    dataProvider={customDataProvider}
     dashboard={Dashboard}
   >
     {(permissions) => (
