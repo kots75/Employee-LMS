@@ -5,29 +5,21 @@
       "name": "John Doe",
       "position": "Frontend Developer",
       "email": "john.doe@example.com",
-      "enrolled": [
-        1,
-        3
-      ]
+      "enrolled": [1, 3]
     },
     {
       "id": 2,
       "name": "Jane Smith",
       "position": "Backend Developer",
       "email": "jane.smith@example.com",
-      "enrolled": [
-        2,
-        4
-      ]
+      "enrolled": [2, 4]
     },
     {
       "id": 3,
       "name": "Alice Johnson",
       "position": "DevOps Engineer",
       "email": "alice.johnson@example.com",
-      "enrolled": [
-        5
-      ]
+      "enrolled": [5]
     }
   ],
   "categories": [
@@ -49,46 +41,47 @@
       "id": 1,
       "name": "Vue.js",
       "categoryId": 1,
+      "prereqIds": [],
       "description": "Learn the basics and advanced concepts of Vue.js.",
-      "enrolled": [
-        1
-      ]
+      "enrolled": [1]
     },
     {
       "id": 2,
       "name": "NestJS",
       "categoryId": 2,
+      "prereqIds": [],
       "description": "Master backend development with NestJS framework.",
-      "enrolled": [
-        2
-      ]
+      "enrolled": [2]
     },
     {
       "id": 3,
       "name": "Styled Components",
       "categoryId": 1,
+      "prereqIds": [1],
       "description": "Learn how to use Styled Components in React projects.",
-      "enrolled": [
-        1
-      ]
+      "enrolled": [1]
     },
     {
       "id": 4,
       "name": "JWT Authentication",
       "categoryId": 2,
+      "prereqIds": [2],
+      "files": [
+        {
+          "url": "https://s2.q4cdn.com/175719177/files/doc_presentations/Placeholder-PDF.pdf",
+          "title": "Placeholder File"
+        }
+      ],
       "description": "Secure your backend applications with JWT authentication.",
-      "enrolled": [
-        2
-      ]
+      "enrolled": [2]
     },
     {
       "id": 5,
       "name": "Kubernetes",
       "categoryId": 3,
+      "prereqIds": [],
       "description": "Deploy and manage containerized applications with Kubernetes.",
-      "enrolled": [
-        3
-      ]
+      "enrolled": [3]
     }
   ],
   "contributions": [

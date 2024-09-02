@@ -1,10 +1,11 @@
 import {
   Create,
+  FileField,
+  FileInput,
+  ReferenceArrayInput,
+  ReferenceInput,
   SimpleForm,
   TextInput,
-  ReferenceInput,
-  ReferenceArrayInput,
-  SaveButton,
 } from "react-admin";
 
 export const LearningPathCreate = () => (
@@ -12,9 +13,12 @@ export const LearningPathCreate = () => (
     <SimpleForm>
       <TextInput source="name" required />
       <ReferenceInput source="categoryId" reference="categories" />
+      <ReferenceArrayInput reference="learning_paths" source="prereqIds" />
+      <FileInput source="attachments">
+        <FileField source="src" title="title" />
+      </FileInput>
       <TextInput source="description" required />
       <ReferenceArrayInput reference="employees" source="enrolled" />
-      <SaveButton />
     </SimpleForm>
   </Create>
 );

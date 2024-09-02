@@ -1,4 +1,5 @@
 import {
+  FileField,
   ReferenceArrayField,
   ReferenceField,
   Show,
@@ -21,6 +22,11 @@ export const LearningPathShow = () => {
           reference="categories"
           link={permissions?.role === "admin" ? "show" : ""}
         />
+        <ReferenceArrayField<LearningPath>
+          reference="learning_paths"
+          source="prereqIds"
+        />
+        <FileField source="files" src="url" title="title" target="_blank" />
         <TextField<LearningPath> source="description" />
         <ReferenceArrayField<LearningPath>
           reference="employees"
