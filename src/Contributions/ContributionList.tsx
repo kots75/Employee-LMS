@@ -14,6 +14,11 @@ import { Contribution, Permissions } from "../types";
 const postFilters = [
   <TextInput source="q" label="Search" alwaysOn />,
   <ReferenceInput source="employeeId" label="Employee" reference="employees" />,
+  <ReferenceInput
+    source="learningPathId"
+    label="Learning Path"
+    reference="learning_paths"
+  />,
 ];
 
 const EditOwnPostButton = () => {
