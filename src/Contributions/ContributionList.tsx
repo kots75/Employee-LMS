@@ -13,11 +13,17 @@ import { Contribution, Permissions } from "../types";
 
 const postFilters = [
   <TextInput source="q" label="Search" alwaysOn />,
-  <ReferenceInput source="employeeId" label="Employee" reference="employees" />,
+  <ReferenceInput
+    source="employeeId"
+    label="Employee"
+    reference="employees"
+    alwaysOn={true}
+  />,
   <ReferenceInput
     source="learningPathId"
     label="Learning Path"
     reference="learning_paths"
+    alwaysOn={true}
   />,
 ];
 

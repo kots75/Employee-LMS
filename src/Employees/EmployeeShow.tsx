@@ -13,7 +13,7 @@ import { Employee } from "../types";
 export const EmployeeShow = () => (
   <Show>
     <SimpleShowLayout spacing={1} divider={<Divider flexItem />}>
-      <TextField<Employee> source="id" sx={{ fontSize: "0.8em" }} />
+      <TextField<Employee> source="id" label="ID" sx={{ fontSize: "0.8em" }} />
       <TextField<Employee> source="name" sx={{ fontSize: "0.8em" }} />
       <TextField<Employee> source="position" sx={{ fontSize: "0.8em" }} />
       <EmailField<Employee> source="email" sx={{ fontSize: "0.8em" }} />
