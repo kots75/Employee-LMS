@@ -42,6 +42,7 @@
       "name": "Vue.js",
       "categoryId": 1,
       "prereqIds": [],
+      "files": [],
       "description": "Learn the basics and advanced concepts of Vue.js.",
       "enrolled": [1]
     },
@@ -50,6 +51,7 @@
       "name": "NestJS",
       "categoryId": 2,
       "prereqIds": [],
+      "files": [],
       "description": "Master backend development with NestJS framework.",
       "enrolled": [2]
     },
@@ -58,6 +60,7 @@
       "name": "Styled Components",
       "categoryId": 1,
       "prereqIds": [1],
+      "files": [],
       "description": "Learn how to use Styled Components in React projects.",
       "enrolled": [1]
     },
@@ -80,17 +83,18 @@
       "name": "Kubernetes",
       "categoryId": 3,
       "prereqIds": [],
+      "files": [],
       "description": "Deploy and manage containerized applications with Kubernetes.",
       "enrolled": [3]
     }
   ],
   "contributions": [
     {
-      "id": 1,
       "title": "Advanced Techniques in Vue.js",
-      "body": "An in-depth look at Vue.js directives and lifecycle hooks.",
+      "body": "<h1><strong><u>An in-depth look at Vue.js directives and lifecycle hooks.</u></strong></h1>",
       "employeeId": 1,
-      "learningPathId": 1
+      "learningPathId": 1,
+      "id": 1
     },
     {
       "id": 2,

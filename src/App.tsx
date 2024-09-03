@@ -28,6 +28,7 @@ import { LearningPathCreate } from "./LearningPaths/LearningPathCreate";
 import { LearningPathEdit } from "./LearningPaths/LearningPathEdit";
 import { LearningPathList } from "./LearningPaths/LearningPathList";
 import { LearningPathShow } from "./LearningPaths/LearningPathShow";
+import theme from "./ShowTheme";
 
 export const App = () => (
   <Admin
@@ -35,6 +36,7 @@ export const App = () => (
     authProvider={authProvider}
     dataProvider={customDataProvider}
     dashboard={Dashboard}
+    theme={theme}
   >
     {(permissions) => (
       <>
