@@ -2,7 +2,7 @@ import ArticleIcon from "@mui/icons-material/Article";
 import CategoryIcon from "@mui/icons-material/Category";
 import UserIcon from "@mui/icons-material/Group";
 import SchoolIcon from "@mui/icons-material/School";
-import { Admin, Resource } from "react-admin";
+import { Admin, defaultDarkTheme, Resource } from "react-admin";
 import { Dashboard } from "./components/Dashboard";
 import { Layout } from "./Layout";
 
@@ -37,6 +37,7 @@ export const App = () => (
     dataProvider={customDataProvider}
     dashboard={Dashboard}
     theme={theme}
+    darkTheme={defaultDarkTheme}
   >
     {(permissions) => (
       <>
