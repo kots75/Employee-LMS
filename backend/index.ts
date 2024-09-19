@@ -4,6 +4,12 @@ import express, { Application, Request, Response } from "express";
 import mongoose from "mongoose";
 import morgan from "morgan";
 import expose from "./middleware/expose";
+import postsRoute from "./routes/postsRoute";
+import usersRoute from "./routes/usersRoute";
+import employeesRoute from "./routes/employeesRoute";
+import categoriesRoute from "./routes/categoriesRoute";
+import learningPathsRoute from "./routes/learningPathsRoute";
+import contributionsRoute from "./routes/contributionsRoute";
 
 //For env File
 dotenv.config();
@@ -16,7 +22,14 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(expose);
 
-app.get("/", (req: Request, res: Response) => {
+app.use("/employees", employeesRoute);
+app.use("/categories", categoriesRoute);
+app.use("/learning_paths", learningPathsRoute);
+app.use("/contributions", contributionsRoute);
+app.use("/posts", postsRoute);
+app.use("/users", usersRoute);
+
+app.get("/test", (req: Request, res: Response) => {
   res.status(200).json({ message: "Hello World" });
 });
 

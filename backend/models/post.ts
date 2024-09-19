@@ -3,7 +3,7 @@ import { Post } from "../interfaces";
 
 const postSchema: Schema = new Schema({
   userId: { type: Number, required: true },
-  id: { type: Number, required: true, unique: true },
+  id: { type: Number, unique: true },
   title: { type: String, required: true },
   body: { type: String, required: true },
 });
