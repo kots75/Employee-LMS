@@ -8,7 +8,7 @@ export interface Admin {
   name: string;
   email: string;
   username: string;
-  password: string;
+  password?: string;
 }
 
 export interface Post {
@@ -30,7 +30,7 @@ export interface Employee {
   email: string;
   enrolled: string[];
   username: string;
-  password: string;
+  password?: string;
 }
 
 export interface Category {
