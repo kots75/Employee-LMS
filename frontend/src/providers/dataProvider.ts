@@ -1,8 +1,25 @@
 import jsonServerProvider from "ra-data-json-server";
-import { GetListParams, QueryFunctionContext } from "react-admin";
+import { fetchUtils, GetListParams, QueryFunctionContext } from "react-admin";
+
+interface FetchOptions extends RequestInit {
+  user?: {
+    authenticated?: boolean;
+    token?: string;
+  };
+}
+
+const fetchJson = (url: string, options: FetchOptions = {}) => {
+  options.user = {
+    authenticated: true,
+    // use the token from local storage
+    token: localStorage.getItem("token") || undefined,
+  };
+  return fetchUtils.fetchJson(url, options);
+};
 
 export const dataProvider = jsonServerProvider(
   import.meta.env.VITE_JSON_SERVER_URL,
+  fetchJson,
 );
 
 const customDataProvider = {
