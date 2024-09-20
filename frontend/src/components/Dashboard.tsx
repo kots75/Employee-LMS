@@ -2,9 +2,18 @@ import { Box, Stack, Typography } from "@mui/material";
 import PieChartCard from "./PieChartCard";
 import StatCard from "./StatCard";
 import BarChartCard from "./BarChartCard";
-import { Title } from "react-admin";
+import { Title, useGetList } from "react-admin";
+import { Employee } from "../types";
 
 export const Dashboard = () => {
+  const { data: employees } = useGetList<Employee>("employees", {
+    pagination: { page: 1, perPage: 100 },
+  });
+  const totalEmployees = employees ? employees.length : 0;
+  const enrolledEmployees =
+    employees?.filter((employee) => employee.enrolled.length > 0).length || 0;
+  const unenrolledEmployees = totalEmployees - enrolledEmployees;
+
   return (
     <>
       <Title title="Dashboard" />
@@ -18,10 +27,18 @@ export const Dashboard = () => {
           Dashboard
         </Typography>
         <Stack direction="row" spacing={2} sx={{ mr: "0.5em" }}>
-          <StatCard title="30" content="Total Employees" iconName="Groups" />
-          <StatCard title="12" content="Enrolled Employees" iconName="Groups" />
           <StatCard
-            title="18"
+            title={totalEmployees.toString()}
+            content="Total Employees"
+            iconName="Groups"
+          />
+          <StatCard
+            title={enrolledEmployees.toString()}
+            content="Enrolled Employees"
+            iconName="Groups"
+          />
+          <StatCard
+            title={unenrolledEmployees.toString()}
             content="Unenrolled Employees"
             iconName="Groups"
           />
