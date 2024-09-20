@@ -11,6 +11,7 @@ import categoriesRoute from "./routes/categoriesRoute";
 import learningPathsRoute from "./routes/learningPathsRoute";
 import contributionsRoute from "./routes/contributionsRoute";
 import authRoute from "./routes/authRoute";
+import { verifyToken } from "./middleware/verifytoken";
 
 //For env File
 dotenv.config();
@@ -24,6 +25,8 @@ app.use(cors());
 app.use(expose);
 
 app.use("/auth", authRoute);
+
+app.use(verifyToken); //routes below this are all protected by jwt
 app.use("/employees", employeesRoute);
 app.use("/categories", categoriesRoute);
 app.use("/learning_paths", learningPathsRoute);
