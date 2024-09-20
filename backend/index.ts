@@ -10,6 +10,7 @@ import employeesRoute from "./routes/employeesRoute";
 import categoriesRoute from "./routes/categoriesRoute";
 import learningPathsRoute from "./routes/learningPathsRoute";
 import contributionsRoute from "./routes/contributionsRoute";
+import authRoute from "./routes/authRoute";
 
 //For env File
 dotenv.config();
@@ -22,6 +23,7 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(expose);
 
+app.use("/auth", authRoute);
 app.use("/employees", employeesRoute);
 app.use("/categories", categoriesRoute);
 app.use("/learning_paths", learningPathsRoute);
