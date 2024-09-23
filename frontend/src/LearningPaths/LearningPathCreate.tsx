@@ -9,7 +9,7 @@ import {
 } from "react-admin";
 
 export const LearningPathCreate = () => (
-  <Create>
+  <Create redirect="list">
     <SimpleForm>
       <TextInput source="name" required />
       <ReferenceInput source="categoryId" reference="categories" />

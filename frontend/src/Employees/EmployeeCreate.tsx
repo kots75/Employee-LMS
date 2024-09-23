@@ -6,7 +6,7 @@ import {
 } from "react-admin";
 
 export const EmployeeCreate = () => (
-  <Create>
+  <Create redirect="list">
     <SimpleForm>
       <TextInput source="name" required />
       <TextInput source="position" required />

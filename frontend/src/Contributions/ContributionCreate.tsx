@@ -25,7 +25,7 @@ export const ContributionCreate = () => {
   };
 
   return (
-    <Create transform={transform}>
+    <Create transform={transform} redirect="list">
       <SimpleForm>
         <ReferenceInput
           source="learningPathId"
