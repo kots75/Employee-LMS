@@ -14,7 +14,7 @@ export const LearningPathCreate = () => (
       <TextInput source="name" required />
       <ReferenceInput source="categoryId" reference="categories" />
       <ReferenceArrayInput reference="learning_paths" source="prereqIds" />
-      <FileInput source="files" multiple={true}>
+      <FileInput source="files">
         <FileField source="src" title="title" />
       </FileInput>
       <TextInput source="description" required />
