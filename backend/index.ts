@@ -4,14 +4,15 @@ import express, { Application, Request, Response } from "express";
 import mongoose from "mongoose";
 import morgan from "morgan";
 import expose from "./middleware/expose";
+import { verifyToken } from "./middleware/verifytoken";
+import authRoute from "./routes/authRoute";
+import categoriesRoute from "./routes/categoriesRoute";
+import cloudinaryRoute from "./routes/cloudinaryRoute";
+import contributionsRoute from "./routes/contributionsRoute";
+import employeesRoute from "./routes/employeesRoute";
+import learningPathsRoute from "./routes/learningPathsRoute";
 import postsRoute from "./routes/postsRoute";
 import usersRoute from "./routes/usersRoute";
-import employeesRoute from "./routes/employeesRoute";
-import categoriesRoute from "./routes/categoriesRoute";
-import learningPathsRoute from "./routes/learningPathsRoute";
-import contributionsRoute from "./routes/contributionsRoute";
-import authRoute from "./routes/authRoute";
-import { verifyToken } from "./middleware/verifytoken";
 
 //For env File
 dotenv.config();
@@ -27,6 +28,7 @@ app.use(expose);
 app.use("/auth", authRoute);
 
 app.use(verifyToken); //routes below this are all protected by jwt
+app.use("/get-cloudinary-signature", cloudinaryRoute);
 app.use("/employees", employeesRoute);
 app.use("/categories", categoriesRoute);
 app.use("/learning_paths", learningPathsRoute);
