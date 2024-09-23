@@ -5,6 +5,7 @@ import {
   QueryFunctionContext,
   withLifecycleCallbacks,
 } from "react-admin";
+import { LearningPath } from "../types";
 
 interface FetchOptions extends RequestInit {
   user?: {
@@ -64,7 +65,12 @@ const customDataProvider = {
 const dataProvider = withLifecycleCallbacks(customDataProvider, [
   {
     resource: "learning_paths",
-    beforeSave: async (data: any) => {
+    beforeSave: async (data: LearningPath) => {
+      // Check if the files array exists and contains files
+      if (!data.files || data.files.length === 0) {
+        return data; // Bypass file uploading if no files are attached
+      }
+
       const response = await fetchJson(
         `${import.meta.env.VITE_JSON_SERVER_URL}/get-cloudinary-signature`,
         { method: "GET" },
@@ -74,25 +80,31 @@ const dataProvider = withLifecycleCallbacks(customDataProvider, [
 
       const url = `https://api.cloudinary.com/v1_1/${signData.cloud_name}/auto/upload`;
 
-      const formData = new FormData();
-      formData.append("file", data.files.rawFile);
-      formData.append("api_key", signData.api_key);
-      formData.append("timestamp", signData.timestamp);
-      formData.append("signature", signData.signature);
+      // Handle multiple file uploads
+      const uploadedFiles = [];
 
-      const fileResponse = await fetch(url, {
-        method: "POST",
-        body: formData,
-      });
+      for (let fileObj of data.files) {
+        const formData = new FormData();
+        formData.append("file", fileObj.rawFile);
+        formData.append("api_key", signData.api_key);
+        formData.append("timestamp", signData.timestamp);
+        formData.append("signature", signData.signature);
 
-      const file: CloudinaryFile = await fileResponse.json();
+        const fileResponse = await fetch(url, {
+          method: "POST",
+          body: formData,
+        });
+
+        const file: CloudinaryFile = await fileResponse.json();
+        uploadedFiles.push({
+          src: file.secure_url,
+          title: file.original_filename,
+        });
+      }
 
       return {
         ...data,
-        files: {
-          src: file.secure_url,
-          title: file.original_filename,
-        },
+        files: uploadedFiles,
       };
     },
   },

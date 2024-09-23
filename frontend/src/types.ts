@@ -33,7 +33,7 @@ export type LearningPath = {
   id: number;
   name: string;
   categoryId: number;
-  files: { url: string; title: string }[];
+  files: { url: string; title: string; rawFile: File }[];
   prereqIds: number[];
   description: string;
   enrolled: number[];
