@@ -12,7 +12,7 @@ const learningPathSchema: Schema = new Schema({
   },
   files: [
     {
-      url: {
+      src: {
         type: String,
         required: true,
       },

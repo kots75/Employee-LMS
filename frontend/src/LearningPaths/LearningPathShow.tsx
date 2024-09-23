@@ -46,7 +46,7 @@ const LearningPathShowLayout = () => {
       {(record?.files?.length ?? 0) > 0 && (
         <FileField
           source="files"
-          src="url"
+          src="src"
           title="title"
           target="_blank"
           sx={{ fontSize: "0.8em" }}
