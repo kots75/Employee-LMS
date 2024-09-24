@@ -26,14 +26,15 @@ import { ContributionList } from "./Contributions/ContributionList";
 import { ContributionShow } from "./Contributions/ContributionShow";
 
 import { AdminCreate } from "./Admins/AdminCreate";
+import { AdminEdit } from "./Admins/AdminEdit";
 import { AdminList } from "./Admins/AdminList";
 import { AdminShow } from "./Admins/AdminShow";
+
 import { LearningPathCreate } from "./LearningPaths/LearningPathCreate";
 import { LearningPathEdit } from "./LearningPaths/LearningPathEdit";
 import { LearningPathList } from "./LearningPaths/LearningPathList";
 import { LearningPathShow } from "./LearningPaths/LearningPathShow";
 import theme from "./ShowTheme";
-import { AdminEdit } from "./Admins/AdminEdit";
 
 export const App = () => (
   <Admin

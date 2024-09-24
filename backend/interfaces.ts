@@ -5,10 +5,12 @@ export interface User {
 }
 
 export interface Admin {
-  name: string;
-  email: string;
-  username: string;
+  id?: string;
+  name?: string;
+  email?: string;
+  username?: string;
   password?: string;
+  newpassword?: string;
 }
 
 export interface Post {

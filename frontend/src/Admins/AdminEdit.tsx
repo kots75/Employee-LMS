@@ -7,7 +7,7 @@ export const AdminEdit = () => {
         <TextInput source="name" required />
         <TextInput source="email" required />
         <TextInput source="username" required />
-        <PasswordInput source="password" required />
+        <PasswordInput source="newpassword" label="New Password" />
       </SimpleForm>
     </Edit>
   );
