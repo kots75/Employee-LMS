@@ -4,6 +4,13 @@ export type User = {
   email: string;
 };
 
+export interface Admin {
+  name: string;
+  email: string;
+  username: string;
+  password: string;
+}
+
 export type Post = {
   id: number;
   title: string;

@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import morgan from "morgan";
 import expose from "./middleware/expose";
 import { verifyToken } from "./middleware/verifytoken";
+import adminsRoute from "./routes/adminsRoute";
 import authRoute from "./routes/authRoute";
 import categoriesRoute from "./routes/categoriesRoute";
 import cloudinaryRoute from "./routes/cloudinaryRoute";
@@ -29,6 +30,7 @@ app.use("/auth", authRoute);
 
 app.use(verifyToken); //routes below this are all protected by jwt
 app.use("/get-cloudinary-signature", cloudinaryRoute);
+app.use("/admins", adminsRoute);
 app.use("/employees", employeesRoute);
 app.use("/categories", categoriesRoute);
 app.use("/learning_paths", learningPathsRoute);

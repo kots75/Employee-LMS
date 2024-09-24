@@ -1,3 +1,4 @@
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import ArticleIcon from "@mui/icons-material/Article";
 import CategoryIcon from "@mui/icons-material/Category";
 import UserIcon from "@mui/icons-material/Group";
@@ -24,11 +25,15 @@ import { ContributionEdit } from "./Contributions/ContributionEdit";
 import { ContributionList } from "./Contributions/ContributionList";
 import { ContributionShow } from "./Contributions/ContributionShow";
 
+import { AdminCreate } from "./Admins/AdminCreate";
+import { AdminList } from "./Admins/AdminList";
+import { AdminShow } from "./Admins/AdminShow";
 import { LearningPathCreate } from "./LearningPaths/LearningPathCreate";
 import { LearningPathEdit } from "./LearningPaths/LearningPathEdit";
 import { LearningPathList } from "./LearningPaths/LearningPathList";
 import { LearningPathShow } from "./LearningPaths/LearningPathShow";
 import theme from "./ShowTheme";
+import { AdminEdit } from "./Admins/AdminEdit";
 
 export const App = () => (
   <Admin
@@ -49,6 +54,16 @@ export const App = () => (
             edit={EmployeeEdit}
             create={EmployeeCreate}
             icon={UserIcon}
+          />
+        ) : null}
+        {permissions.role === "admin" ? (
+          <Resource
+            name="admins"
+            list={AdminList}
+            show={AdminShow}
+            create={AdminCreate}
+            edit={AdminEdit}
+            icon={AdminPanelSettingsIcon}
           />
         ) : null}
         {permissions.role === "admin" ? (
