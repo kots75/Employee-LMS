@@ -14,6 +14,9 @@ export const Dashboard = () => {
     employees?.filter((employee) => employee.enrolled.length > 0).length || 0;
   const unenrolledEmployees = totalEmployees - enrolledEmployees;
 
+  const { data: admins } = useGetList("admins");
+  const totalAdmins = admins ? admins.length : 0;
+
   return (
     <>
       <Title title="Dashboard" />
@@ -42,7 +45,11 @@ export const Dashboard = () => {
             content="Unenrolled Employees"
             iconName="Groups"
           />
-          <StatCard title="2" content="Admins" iconName="Groups" />
+          <StatCard
+            title={totalAdmins.toString()}
+            content="Admins"
+            iconName="Groups"
+          />
         </Stack>
         <Stack
           direction="row"
