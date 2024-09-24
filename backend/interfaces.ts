@@ -26,13 +26,14 @@ export interface Permissions {
 }
 
 export interface Employee {
-  id: string;
-  name: string;
-  position: string;
-  email: string;
-  enrolled: string[];
-  username: string;
+  id?: string;
+  name?: string;
+  position?: string;
+  email?: string;
+  enrolled?: string[];
+  username?: string;
   password?: string;
+  newpassword?: string;
 }
 
 export interface Category {

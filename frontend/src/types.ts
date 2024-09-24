@@ -29,6 +29,8 @@ export type Employee = {
   position: string;
   email: string;
   enrolled: number[];
+  username: string;
+  password: string;
 };
 
 export type Category = {

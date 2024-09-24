@@ -1,8 +1,9 @@
 import {
   Create,
+  PasswordInput,
+  ReferenceArrayInput,
   SimpleForm,
   TextInput,
-  ReferenceArrayInput,
 } from "react-admin";
 
 export const EmployeeCreate = () => (
@@ -11,6 +12,8 @@ export const EmployeeCreate = () => (
       <TextInput source="name" required />
       <TextInput source="position" required />
       <TextInput source="email" required />
+      <TextInput source="username" required />
+      <PasswordInput source="password" required />
       <ReferenceArrayInput reference="learning_paths" source="enrolled" />
     </SimpleForm>
   </Create>

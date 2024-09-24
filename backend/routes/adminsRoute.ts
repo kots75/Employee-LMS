@@ -20,7 +20,7 @@ router.use(
           return Promise.resolve({ ...input, password: passwordHash });
         }
       }
-      if (input.newpassword) {
+      if (input.newpassword && input.newpassword !== "") {
         const salt = await bcrypt.genSalt();
         const passwordHash = await bcrypt.hash(input.newpassword, salt);
         return Promise.resolve({ ...input, password: passwordHash });

@@ -1,12 +1,12 @@
 import { Divider } from "@mui/material";
 import {
-  Show,
-  SimpleShowLayout,
-  TextField,
+  ChipField,
   EmailField,
   ReferenceArrayField,
+  Show,
+  SimpleShowLayout,
   SingleFieldList,
-  ChipField,
+  TextField,
 } from "react-admin";
 import { Employee } from "../types";
 
@@ -17,6 +17,7 @@ export const EmployeeShow = () => (
       <TextField<Employee> source="name" sx={{ fontSize: "0.8em" }} />
       <TextField<Employee> source="position" sx={{ fontSize: "0.8em" }} />
       <EmailField<Employee> source="email" sx={{ fontSize: "0.8em" }} />
+      <TextField<Employee> source="username" sx={{ fontSize: "0.8em" }} />
       <ReferenceArrayField<Employee>
         reference="learning_paths"
         source="enrolled"
